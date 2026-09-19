@@ -394,3 +394,19 @@ venv
 !/tools/release/**
 /tools/release/**/__pycache__/
 /tools/release/**/*.pyc
+
+# ---- Lab splat / hybrid content: LOCAL ONLY, deliberately not committed -----------------------
+# `unreal/Blocks/Content/LabHybrid/` (1.5 GB) and `NanoGS/` (174 MB) are the imported VU lab
+# survey -- the 550k-splat NanoGS assets and the photo-textured mesh. They are NOT in this repo
+# and cannot be: `LabHybrid/lab_ue_patched/Textures/lab_ue_patched_texture_1.uasset` alone is
+# 204 MB, past GitHub's 100 MB per-file hard limit, and this repo has no Git LFS configured.
+# They are reproducible from the survey in Kiguli/verivital-lab-render, so the source of truth
+# stays there and the import is a local build product.
+#
+# CONSEQUENCE, so nobody rediscovers it the hard way: BlocksMap.umap in a working checkout may
+# carry references INTO LabHybrid (the hybrid lab level was built on it). That edit is therefore
+# also local -- committing it would ship a map with dangling references to content no clone has.
+# A fresh clone gets the stock Blocks map, which is correct and loads.
+/unreal/Blocks/Content/LabHybrid/
+/unreal/Blocks/Content/NanoGS/
+/unreal/Blocks/Config/DefaultEngine.ini.bak-*
