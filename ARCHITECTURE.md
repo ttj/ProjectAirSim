@@ -39,7 +39,7 @@ Choose the host before setup. Follow the existing source/client guides for the s
 
 For the engine-independent path, the Runtime README gives the built executable location and `projectairsim_runtime_demo.py` entrypoint. For Unreal, use the existing source/prebuilt environment instructions and matching client example/configuration. These start simulation and may compile/download substantial dependencies; they were not run for this documentation change.
 
-The repository has existing GitHub workflows under [.github/workflows/](.github/workflows). Their path/label gates matter: the root architecture file is not in the current docs workflow's path list, and the self-hosted workflow requires `run-self-hosted`. A manual cloud docs build, when available, is separate from a simulator/Unreal/render validation run; report its exact head and result without treating it as broader qualification.
+The repository has existing GitHub workflows under [.github/workflows/](.github/workflows). Their path/label gates matter: the root architecture file is not in the current docs workflow's path list, and the self-hosted workflow requires `run-self-hosted`. The Sphinx workflow removes its two generated `build` directories before rebuilding. Read its commands before dispatching it under any preservation constraint; a docs build is separate from simulator/Unreal/render validation, and successful job status alone does not establish that every autodoc import rendered successfully.
 
 ## Traps and change boundaries
 
